@@ -55,5 +55,5 @@ def info():
 def metricas():
     return jsonify(get_system_info())
 
-if __name__ == '__main__':
+if __name__ == '__app__':
     app.run(debug=True, host='0.0.0.0', port=5000)
