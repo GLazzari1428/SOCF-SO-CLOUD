@@ -3,7 +3,7 @@ import os
 import platform
 import psutil
 
-app = Flask(__name__)
+APP = Flask(__name__)
 
 INTEGRANTES = "Gustavo Tasca Lazzari" 
 
@@ -26,7 +26,7 @@ def get_system_info():
         "sistema_operacional": f"{os_name} ({os_version})"
     }
 
-@app.route('/')
+@APP.route('/')
 def home():
     info = get_system_info()
     
@@ -45,15 +45,15 @@ def home():
     """
     return html
 
-@app.route('/info')
+@APP.route('/info')
 def info():
     return jsonify({
         "integrantes": INTEGRANTES
     })
 
-@app.route('/metricas')
+@APP.route('/metricas')
 def metricas():
     return jsonify(get_system_info())
 
 if __name__ == '__app__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    APP.run(debug=True, host='0.0.0.0', port=5000)
